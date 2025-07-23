@@ -47,7 +47,7 @@
         <div class="desktop-nav__top">
             <div class="desktop-nav__top-container">
                 <img
-                    src="{{ asset('img/logo.png') }}"
+                    src="{{ asset('img/logo.jpeg') }}"
                     alt=""
                     class="desktop-nav__logo"
                 />
