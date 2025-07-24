@@ -285,125 +285,27 @@
     <div class="products__wrapper">
         <div class="swiper products__swiper">
             <div class="swiper-wrapper">
+                @foreach($products as $product)
                 <div class="swiper-slide">
                     <div class="products__item">
                         <div class="products__image-wrapper">
                             <img
-                                src="{{ asset('img/home/product-image.png') }}"
+                                src="{{ asset('storage/'.$product->thumbnail) }}"
                                 alt=""
                                 class="products__image"
                             />
                         </div>
                         <div class="products__text">
                             <h4 class="products__name">
-                                Kopiarka Bizhub 367 Konica Minolta Mono
+                                {{ $product->name }}
                             </h4>
-                            <span class="products__price">2 999,00 zł</span>
+                            <span class="products__price">
+                                {{ $product->price }} zł</span
+                            >
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="products__item">
-                        <div class="products__image-wrapper">
-                            <img
-                                src="{{ asset('img/home/product-image.png') }}"
-                                alt=""
-                                class="products__image"
-                            />
-                        </div>
-                        <div class="products__text">
-                            <h4 class="products__name">
-                                Kopiarka Bizhub 367 Konica Minolta Mono
-                            </h4>
-                            <span class="products__price">2 999,00 zł</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="products__item">
-                        <div class="products__image-wrapper">
-                            <img
-                                src="{{ asset('img/home/product-image.png') }}"
-                                alt=""
-                                class="products__image"
-                            />
-                        </div>
-                        <div class="products__text">
-                            <h4 class="products__name">
-                                Kopiarka Bizhub 367 Konica Minolta Mono
-                            </h4>
-                            <span class="products__price">2 999,00 zł</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="products__item">
-                        <div class="products__image-wrapper">
-                            <img
-                                src="{{ asset('img/home/product-image.png') }}"
-                                alt=""
-                                class="products__image"
-                            />
-                        </div>
-                        <div class="products__text">
-                            <h4 class="products__name">
-                                Kopiarka Bizhub 367 Konica Minolta Mono
-                            </h4>
-                            <span class="products__price">2 999,00 zł</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="products__item">
-                        <div class="products__image-wrapper">
-                            <img
-                                src="{{ asset('img/home/product-image.png') }}"
-                                alt=""
-                                class="products__image"
-                            />
-                        </div>
-                        <div class="products__text">
-                            <h4 class="products__name">
-                                Kopiarka Bizhub 367 Konica Minolta Mono
-                            </h4>
-                            <span class="products__price">2 999,00 zł</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="products__item">
-                        <div class="products__image-wrapper">
-                            <img
-                                src="{{ asset('img/home/product-image.png') }}"
-                                alt=""
-                                class="products__image"
-                            />
-                        </div>
-                        <div class="products__text">
-                            <h4 class="products__name">
-                                Kopiarka Bizhub 367 Konica Minolta Mono
-                            </h4>
-                            <span class="products__price">2 999,00 zł</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="products__item">
-                        <div class="products__image-wrapper">
-                            <img
-                                src="{{ asset('img/home/product-image.png') }}"
-                                alt=""
-                                class="products__image"
-                            />
-                        </div>
-                        <div class="products__text">
-                            <h4 class="products__name">
-                                Kopiarka Bizhub 367 Konica Minolta Mono
-                            </h4>
-                            <span class="products__price">2 999,00 zł</span>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -415,6 +317,9 @@
     const swiper = new Swiper(".swiper", {
         slidesPerView: 1,
         spaceBetween: 20,
+        autoplay: {
+            delay: 4000,
+        },
         breakpoints: {
             640: {
                 slidesPerView: 2,

@@ -46,11 +46,13 @@
     <div class="desktop-nav__wrapper">
         <div class="desktop-nav__top">
             <div class="desktop-nav__top-container">
-                <img
-                    src="{{ asset('img/logo.jpeg') }}"
-                    alt=""
-                    class="desktop-nav__logo"
-                />
+                <a href="{{ route('home') }}" class="desktop-nav__logo-link">
+                    <img
+                        src="{{ asset('img/logo.jpeg') }}"
+                        alt=""
+                        class="desktop-nav__logo"
+                    />
+                </a>
                 <div class="desktop-nav__search">
                     <input
                         type="text"
@@ -89,7 +91,7 @@
                             <span class="desktop-nav__name">Zaloguj się</span>
                         </div>
                     </a>
-                    <a href="#" class="desktop-nav__button-wrapper">
+                    <!-- <a href="#" class="desktop-nav__button-wrapper">
                         <div class="desktop-nav__icon-wrapper">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +107,7 @@
                             <span class="desktop-nav__title">Koszyk</span>
                             <span class="desktop-nav__name">5 produktów</span>
                         </div>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>
@@ -113,13 +115,23 @@
             <div class="desktop-nav__bottom-container">
                 <ul class="desktop-nav__menu">
                     <li class="desktop-nav__item">
-                        <a href="#" class="desktop-nav__link">Strona główna</a>
+                        <a href="{{ route('home') }}" class="desktop-nav__link"
+                            >Strona główna</a
+                        >
                     </li>
                     <li class="desktop-nav__item">
-                        <a href="#" class="desktop-nav__link">O nas</a>
+                        <a
+                            href="{{ route('page', 'o-nas') }}"
+                            class="desktop-nav__link"
+                            >O nas</a
+                        >
                     </li>
                     <li class="desktop-nav__item">
-                        <a href="#" class="desktop-nav__link">Dostawa</a>
+                        <a
+                            href="{{ route('page', 'dostawa') }}"
+                            class="desktop-nav__link"
+                            >Dostawa</a
+                        >
                     </li>
                     <li class="desktop-nav__item">
                         <a href="#" class="desktop-nav__link">Sklep</a>

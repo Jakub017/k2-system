@@ -20,12 +20,16 @@ use Filament\Tables\Actions\RestoreAction;
 use Filament\Tables\Actions\ForceDeleteAction;
 use App\Filament\Resources\ProductResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\ToggleColumn;
+use App\Filament\Exports\ProductExporter;
+use Filament\Tables\Actions\ExportBulkAction;
 
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-archive-box';
 
     protected static ?string $navigationLabel = 'Produkty';
 
@@ -42,6 +46,9 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
+                Toggle::make('active')
+                    ->label('Aktywny?')
+                    ->columnSpanFull(),
                 FileUpload::make('thumbnail')
                     ->label('Zdjęcie główne'),
                 FileUpload::make('images')
@@ -73,7 +80,7 @@ class ProductResource extends Resource
                     ->numeric()
                     ->suffix('zł'),
                 TextInput::make('slug')
-                    ->label('Url')
+                    ->label('Url (tworzy się automatycznie)')
                     ->required()
                     ->prefix('ksero-k2system.pl/produtkt/')
                     ->maxLength(255)
@@ -98,6 +105,8 @@ class ProductResource extends Resource
                     ->label('Ilość')
                     ->numeric()
                     ->sortable(),
+                ToggleColumn::make('active')
+                    ->label('Aktywny?'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -113,8 +122,10 @@ class ProductResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                     Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),
+                    ExportBulkAction::make()
+                        ->exporter(ProductExporter::class)
                 ]),
-            ]);
+            ]);   
     }
 
     public static function getRelations(): array
