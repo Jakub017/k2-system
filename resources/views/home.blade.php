@@ -268,9 +268,9 @@
         </div>
         <p class="section__subtitle">
             Profesjonalne urządzenia biurowe Konica Minolta – gotowe do
-            codziennej pracy w Twojej firmie
+            codziennej pracy w Twojej firmie.
         </p>
-        <a href="#" class="products__button"
+        <a href="{{ route('shop') }}" class="products__button"
             >Wszystkie produkty
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -287,8 +287,14 @@
             <div class="swiper-wrapper">
                 @foreach($products as $product)
                 <div class="swiper-slide">
-                    <div class="products__item">
+                    <a
+                        href="{{ route('product', $product->slug) }}"
+                        class="products__item"
+                    >
                         <div class="products__image-wrapper">
+                            @if($product->bestseller === true)
+                            <div class="products__badge">Bestseller</div>
+                            @endif
                             <img
                                 src="{{ asset('storage/'.$product->thumbnail) }}"
                                 alt=""
@@ -296,14 +302,27 @@
                             />
                         </div>
                         <div class="products__text">
-                            <h4 class="products__name">
+                            <h3 class="products__name">
                                 {{ $product->name }}
-                            </h4>
-                            <span class="products__price">
-                                {{ $product->price }} zł</span
-                            >
+                            </h3>
+                            <div class="products__bottom">
+                                <span class="products__price">
+                                    {{ $product->price }} zł</span
+                                >
+                                <span class="products__link"
+                                    >Zobacz produkt
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="products__icon"
+                                        viewBox="0 -960 960 960"
+                                    >
+                                        <path
+                                            d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"
+                                        /></svg
+                                ></span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 @endforeach
             </div>
@@ -319,6 +338,7 @@
         spaceBetween: 20,
         autoplay: {
             delay: 4000,
+            pauseOnMouseEnter: true,
         },
         breakpoints: {
             640: {
@@ -327,11 +347,7 @@
             },
             768: {
                 slidesPerView: 3,
-                spaceBetween: 40,
-            },
-            1024: {
-                slidesPerView: 4,
-                spaceBetween: 50,
+                spaceBetween: 20,
             },
         },
     });

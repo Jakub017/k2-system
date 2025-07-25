@@ -13,6 +13,15 @@ class PagesController extends Controller
         return view('home', compact('products'));
     }
 
+    public function shop() {
+        $products = Product::orderBy('created_at', 'desc')->get();
+        return view('shop', compact('products'));
+    }
+
+    public function product(Product $product) {
+        return view('product', compact('product'));
+    }
+
     public function page($slug) {
         $page = Page::where('slug', $slug)->first();
         return view('page', compact('page'));

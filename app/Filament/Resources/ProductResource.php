@@ -42,13 +42,19 @@ class ProductResource extends Resource
         return static::getModel()::count();
     }
 
+    public static function getNavigationBadgeTooltip(): ?string
+    {
+        return 'Ilość produktów';
+    }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Toggle::make('active')
-                    ->label('Aktywny?')
-                    ->columnSpanFull(),
+                    ->label('Aktywny?'),
+                Toggle::make('bestseller')
+                    ->label('Bestseller?'),
                 FileUpload::make('thumbnail')
                     ->label('Zdjęcie główne'),
                 FileUpload::make('images')

@@ -540,22 +540,54 @@ $mainColor: #001260;
         }
     }
 
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
     &__item {
         width: 100%;
-        // padding: 1rem;
         box-shadow: 0 0 3px #ccc;
         border-radius: 2rem;
         overflow: hidden;
+        display: block;
+    }
+
+    &__item:hover &__icon {
+        transform: translateX(0.5rem);
     }
 
     &__image-wrapper {
         padding: 1rem;
+
+        position: relative;
         background: rgb(255, 255, 255);
         background: linear-gradient(
             180deg,
             rgba(255, 255, 255, 1) 0%,
             rgba(239, 239, 239, 0.6) 100%
         );
+    }
+
+    &__badge {
+        color: #fff;
+        font-size: 1.4rem;
+        background-color: $mainColor;
+        border-radius: 6rem;
+        padding: 0.5rem 2rem;
+        width: fit-content;
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 2rem;
     }
 
     &__image {
@@ -569,14 +601,14 @@ $mainColor: #001260;
     }
 
     &__text {
-        padding: 1rem 2rem;
+        padding: 2rem;
         display: flex;
         gap: 0.5rem;
         flex-direction: column;
     }
 
     &__name {
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 500;
         color: #333;
     }
@@ -585,6 +617,22 @@ $mainColor: #001260;
         font-size: 1.4rem;
         font-weight: 700;
         color: $mainColor;
+    }
+
+    &__link {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: $mainColor;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &__icon {
+        width: 2rem;
+        fill: $mainColor;
+        transition: 0.2s transform ease-in-out;
     }
 }
 
@@ -620,6 +668,11 @@ $mainColor: #001260;
         p {
             font-size: 1.4rem;
             margin-bottom: 1.2rem;
+        }
+
+        a {
+            font-size: 1.4rem;
+            color: $mainColor;
         }
 
         h1 {
@@ -728,6 +781,78 @@ $mainColor: #001260;
     }
 }
 
+.footer {
+    border-top: 1px solid #dedede;
+
+    &__container {
+        max-width: 1300px;
+        width: 100%;
+        padding: 4rem 2rem;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__logo {
+        width: 150px;
+    }
+
+    &__column {
+        width: 100%;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        max-width: 400px;
+
+        &--white {
+            color: #fff;
+        }
+    }
+
+    &__heading {
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__link {
+        font-size: 1.4rem;
+        transition: 0.2s color ease-in-out;
+
+        &:hover {
+            color: $mainColor;
+        }
+
+        &--white {
+            color: #fff;
+
+            &:hover {
+                text-decoration: underline;
+                color: #fff;
+            }
+        }
+    }
+
+    &__bottom {
+        width: 100%;
+        padding: 1rem 0;
+        background-color: $mainColor;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 @media (min-width: 768px) {
     .offer {
         &__wrapper {
@@ -736,6 +861,12 @@ $mainColor: #001260;
         }
 
         &__item {
+            width: calc(50% - 1rem);
+        }
+    }
+
+    .products {
+        &__item--shop {
             width: calc(50% - 1rem);
         }
     }
@@ -877,6 +1008,26 @@ $mainColor: #001260;
         &__button {
             font-size: 1.5rem;
         }
+
+        &__name {
+            font-size: 2rem;
+        }
+
+        &__price {
+            font-size: 1.5rem;
+        }
+
+        &__link {
+            font-size: 1.5rem;
+        }
+
+        &__icon {
+            width: 2.2rem;
+        }
+
+        &__item--shop {
+            width: calc(33% - 1rem);
+        }
     }
 
     .page {
@@ -890,6 +1041,11 @@ $mainColor: #001260;
             p {
                 font-size: 1.5rem;
                 margin-bottom: 1.4rem;
+            }
+
+            a {
+                font-size: 1.5rem;
+                color: $mainColor;
             }
 
             h1 {
@@ -966,6 +1122,23 @@ $mainColor: #001260;
                 color: #555;
                 font-size: 1.5rem;
             }
+        }
+    }
+
+    .footer {
+        &__column {
+            width: calc(25% - 2rem);
+
+            &--first {
+                width: calc(50% - 2rem);
+                margin-right: auto;
+            }
+        }
+
+        &__text,
+        &__heading,
+        &__link {
+            font-size: 1.5rem;
         }
     }
 }
