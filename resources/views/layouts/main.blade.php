@@ -5,8 +5,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>
-            k2system Robert Białogłowicz | Kserokopiarki konica minolta
+            k2system Robert Białogłowicz | Kserokopiarki konica minolta -
+            @yield('title')
         </title>
+        @yield('meta')
 
         <!-- Google fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />

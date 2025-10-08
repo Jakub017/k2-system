@@ -1,4 +1,9 @@
-@extends('layouts.main') @section('content')
+@extends('layouts.main') @section('title', $page->title) @section('meta')
+
+<meta name="description" content="{{ $page->meta_description }}" />
+<meta name="keywords" content="{{ $page->meta_keywords }}" />
+
+@endsection @section('content')
 
 <div class="page">
     <div class="page__container">

@@ -1,4 +1,14 @@
-@extends('layouts.main') @section('content')
+@extends('layouts.main') @section('title', "Strona główna") @section('meta')
+@section('meta')
+<meta
+    name="description"
+    content="K2System – sprzedaż, dzierżawa i serwis kserokopiarek Konica Minolta. Cieszyn • dostawy w całej Polsce i UE, instalacja na miejscu, szybki serwis i tonery."
+/>
+<meta
+    name="keywords"
+    content="k2system, Konica Minolta, kserokopiarki, serwis kserokopiarek, dzierżawa kserokopiarek, kopiarki Bizhub, drukarki, tonery, Cieszyn, śląskie"
+/>
+@endsection @endsection @section('content')
 
 <div class="hero">
     <div class="hero__wrapper">

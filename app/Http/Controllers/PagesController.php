@@ -29,6 +29,10 @@ class PagesController extends Controller
         return view('search', compact('products', 'phrase'));
     }
 
+    public function contact() {
+        return view('contact');
+    }
+
     public function page($slug) {
         $page = Page::where('slug', $slug)->first();
         return view('page', compact('page'));

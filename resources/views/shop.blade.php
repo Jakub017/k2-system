@@ -1,4 +1,13 @@
-@extends('layouts.main') @section('content')
+@extends('layouts.main') @section('title', "Sklep") @section('meta')
+<meta
+    name="description"
+    content="Sklep K2System: kserokopiarki i drukarki Konica Minolta Bizhub – nowe i poleasingowe. Sprawdzone modele, atrakcyjne ceny, gwarancja i wsparcie techniczne."
+/>
+<meta
+    name="keywords"
+    content="sklep kserokopiarki, Konica Minolta Bizhub, kopiarki poleasingowe, drukarki, tonery, C364e, C284e, C224e, C258, C308"
+/>
+@endsection @section('content')
 
 <div class="page">
     <div class="page__container">
