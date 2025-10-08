@@ -127,13 +127,155 @@
                         >
                     </li>
                     <li class="desktop-nav__item">
-                        <a href="#" class="desktop-nav__link">Kontakt</a>
+                        <a
+                            href="{{ route('contact') }}"
+                            class="desktop-nav__link"
+                            >Kontakt</a
+                        >
                     </li>
                 </ul>
                 <a href="tel:+48500638676" class="desktop-nav__button"
                     >Darmowa konsultacja</a
                 >
             </div>
+        </div>
+    </div>
+</nav>
+<nav class="mobile-nav">
+    <div class="mobile-nav__container">
+        <a href="{{ route('home') }}" class="mobile-nav__logo-link">
+            <img
+                src="{{ asset('img/logo.jpeg') }}"
+                alt=""
+                class="mobile-nav__logo"
+            />
+        </a>
+        <div class="mobile-nav__bottom">
+            <form action="{{ route('search') }}" class="mobile-nav__search">
+                @csrf
+                <input
+                    type="text"
+                    name="query"
+                    class="mobile-nav__search-bar"
+                    placeholder="Wyszukiwanie..."
+                />
+                <button type="submit" class="mobile-nav__search-button">
+                    Szukaj
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24px"
+                        viewBox="0 -960 960 960"
+                        class="mobile-nav__search-icon"
+                    >
+                        <path
+                            d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
+                        />
+                    </svg>
+                </button>
+            </form>
+            <button class="mobile-nav__hamburger">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-menu-icon lucide-menu mobile-nav__hamburger-icon"
+                >
+                    <path d="M4 5h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 19h16" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="mobile-nav__overlay">
+            <img
+                src="{{ asset('img/logo.jpeg') }}"
+                alt=""
+                class="mobile-nav__logo"
+            />
+            <ul class="mobile-nav__menu">
+                <li class="mobile-nav__item">
+                    <a href="{{ route('home') }}" class="mobile-nav__link"
+                        >Strona główna</a
+                    >
+                </li>
+                <li class="mobile-nav__item">
+                    <a
+                        href="{{ route('page', 'o-nas') }}"
+                        class="mobile-nav__link"
+                        >O nas</a
+                    >
+                </li>
+                <li class="mobile-nav__item">
+                    <a
+                        href="{{ route('page', 'dostawa') }}"
+                        class="mobile-nav__link"
+                        >Dostawa</a
+                    >
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="{{ route('shop') }}" class="mobile-nav__link"
+                        >Sklep</a
+                    >
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="{{ route('contact') }}" class="mobile-nav__link"
+                        >Kontakt</a
+                    >
+                </li>
+            </ul>
+            <div class="mobile-nav__line"></div>
+            <ul class="mobile-nav__menu">
+                <li class="mobile-nav__item">
+                    <a
+                        href="mailto:biuro@ksero-k2system.pl"
+                        class="mobile-nav__link"
+                        ><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-mail-icon lucide-mail mobile-nav__icon"
+                        >
+                            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                        </svg>
+                        biuro@ksero-k2system.pl</a
+                    >
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="tel:+48500638676" class="mobile-nav__link"
+                        ><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-phone-icon lucide-phone mobile-nav__icon"
+                        >
+                            <path
+                                d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                            />
+                        </svg>
+                        +48 500 638 676</a
+                    >
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

@@ -34,5 +34,16 @@
         <!-- Swiper.js script -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         @yield('scripts')
+
+        <script>
+            const hamburgerBtn = document.querySelector(
+                ".mobile-nav__hamburger"
+            );
+            const mobileMenu = document.querySelector(".mobile-nav__overlay");
+
+            hamburgerBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("mobile-nav__overlay--active");
+            });
+        </script>
     </body>
 </html>
