@@ -53,13 +53,18 @@
                         class="desktop-nav__logo"
                     />
                 </a>
-                <div class="desktop-nav__search">
+                <form
+                    action="{{ route('search') }}"
+                    class="desktop-nav__search"
+                >
+                    @csrf
                     <input
                         type="text"
+                        name="query"
                         class="desktop-nav__search-bar"
                         placeholder="Wyszukiwanie produktów..."
                     />
-                    <button class="desktop-nav__search-button">
+                    <button type="submit" class="desktop-nav__search-button">
                         Szukaj
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +77,7 @@
                             />
                         </svg>
                     </button>
-                </div>
+                </form>
                 <!-- <div class="desktop-nav__buttons">
                     <a href="#" class="desktop-nav__button-wrapper">
                         <div class="desktop-nav__icon-wrapper">

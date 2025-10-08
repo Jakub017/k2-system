@@ -8,6 +8,7 @@ Route::controller(PagesController::class)->group(function() {
     Route::get('/sklep', 'shop')->name('shop');
     Route::get('/sklep/{product:slug}', 'product')->name('product');
     Route::get('/kontakt', 'contact')->name('contact');
+    Route::get('/szukaj', 'search')->name('search');
 
     Route::get('/{slug}', 'page')->name('page');
 });

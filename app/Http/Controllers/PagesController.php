@@ -22,6 +22,13 @@ class PagesController extends Controller
         return view('product', compact('product'));
     }
 
+    public function search(Request $request) {
+        $products = Product::search($request->input('query'))->get();
+        $phrase = $request->input('query');
+
+        return view('search', compact('products', 'phrase'));
+    }
+
     public function page($slug) {
         $page = Page::where('slug', $slug)->first();
         return view('page', compact('page'));

@@ -1199,6 +1199,13 @@ $mainColor: #001260;
     .page {
         &__title {
             font-size: 4rem;
+
+            &--colored {
+                color: $mainColor;
+                &::after {
+                    display: none;
+                }
+            }
         }
 
         &__content {
