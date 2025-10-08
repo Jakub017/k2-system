@@ -50,6 +50,13 @@
                         >Polityka prywatności</a
                     >
                 </li>
+                <li class="footer__item">
+                    <a
+                        href="{{ route('page', 'regulamin') }}"
+                        class="footer__link"
+                        >Regulamin</a
+                    >
+                </li>
             </ul>
         </div>
     </div>
@@ -61,13 +68,6 @@
                 href="https://lipinskijakub.pl/pl"
                 target="_blank"
                 >Jakub Lipiński</a
-            >
-            -
-            <a
-                class="footer__link footer__link--white"
-                href="https://webcrafts.pl/"
-                target="_blank"
-                >Webcrafts.pl</a
             >
         </p>
     </div>

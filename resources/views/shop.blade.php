@@ -25,7 +25,10 @@
         <div class="products">
             <div class="products__container">
                 @foreach($products as $product)
-                <div class="products__item products__item--shop">
+                <a
+                    href="{{ route('product', $product) }}"
+                    class="products__item products__item--shop"
+                >
                     <div class="products__image-wrapper">
                         <img
                             src="{{ asset('storage/'.$product->thumbnail) }}"
@@ -34,14 +37,16 @@
                         />
                     </div>
                     <div class="products__text">
-                        <a href="#" class="products__name">
+                        <h2 class="products__name">
                             {{ $product->name }}
-                        </a>
+                        </h2>
                         <div class="products__bottom">
                             <span class="products__price">
                                 {{ $product->price }} zł</span
                             >
-                            <a href="#" class="products__link"
+                            <span
+                                href="{{ route('product', $product) }}"
+                                class="products__link"
                                 >Zobacz produkt
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -51,10 +56,10 @@
                                     <path
                                         d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"
                                     /></svg
-                            ></a>
+                            ></span>
                         </div>
                     </div>
-                </div>
+                </a>
                 @endforeach
             </div>
         </div>
