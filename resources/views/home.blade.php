@@ -26,7 +26,7 @@
                 rozwiązania i japońską jakość.
             </p>
             <div class="hero__buttons">
-                <a href="#" class="hero__button"
+                <a href="#offer" class="hero__button"
                     >Nasza oferta
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@
                             d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"
                         /></svg
                 ></a>
-                <a href="#" class="hero__button hero__button--empty"
+                <a href="{{ route('contact') }}" class="hero__button hero__button--empty"
                     >Kontakt z nami
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@
     </div>
 </div>
 
-<div class="section section--first offer">
+<div id="offer" class="section section--first offer">
     <div class="section__heading">
         <div class="section__title-wrapper">
             <h2 class="section__title">
